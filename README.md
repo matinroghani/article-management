@@ -89,6 +89,14 @@ Run the development server:
 ```bash
 npm run dev
 ```
+## 🔑 Demo Credentials
+
+For testing the application, use the following default admin credentials:
+
+**Username:** `1`
+**Password:** `1`
+
+You can also create a new admin account through the registration page. All user and article data are stored locally using Local Storage.
 
 ---
 
