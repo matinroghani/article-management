@@ -1,0 +1,102 @@
+
+body {
+    background: linear-gradient(135deg, #0a0a0a, #1b1b1b, #262626);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerWrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.loginBox {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 40px 30px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.loginBox h2 {
+    text-align: center;
+    color: #f0f0f0;
+    margin-bottom: 35px;
+    font-weight: 600;
+}
+
+.inputGroup {
+    position: relative;
+    margin-bottom: 30px;
+    direction: ltr;
+}
+
+.inputGroup input {
+    width: 100%;
+    padding: 12px 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #555;
+    color: #fff;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.inputGroup input:focus {
+    border-bottom-color: #7a5cff;
+    outline: none;
+}
+
+.inputGroup label {
+    position: absolute;
+    top: 12px;
+    right: 5px;
+    color: #aaa;
+    font-size: 14px;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.inputGroup input:focus + label,
+.inputGroup input:valid + label {
+    top: -10px;
+    font-size: 12px;
+    color: #c7b2ff;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #6a4cff, #8d6bff);
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.footerText {
+    text-align: center;
+    margin-top: 15px;
+    color: #bbb;
+    font-size: 14px;
+}
+
+.footerText a {
+    color: #b28cff;
+    text-decoration: none;
+}
+.BanedMessage{
+    color:red;
+    font-size: 20px;
+    font-weight: 700;
+}

@@ -1,0 +1,356 @@
+:root {
+  --darkBackground: #0b0e14; /* مشکی عمیق */
+  --primaryColor: #00aaff; /* آبی نئونی */
+  --secondaryColor: #e94560; /* صورتی/قرمز شارپ */
+  --textColor: #e0e0e0; /* سفید روشن */
+  --cardBackground: #12161f; /* پس‌زمینه کارت‌ها و بخش‌های فرعی */
+  --borderColor: #2a3340; /* رنگ حاشیه */
+  --hoverBg: rgba(255, 255, 255, 0.08); /* پس‌زمینه هاور */
+  --shadowColor: rgba(0, 0, 0, 0.6); /* رنگ سایه */
+  --accentColor: #3f51b5; /* رنگ تاکیدی دیگر (مثلا برای نظرات) */
+  --commentBg: #1a1f2a; /* پس‌زمینه کارت نظرات */
+}
+
+body {
+ background-color: var(--darkBackground);
+  color: var(--textColor);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--darkBackground) 50%,
+    #181e2c 100%
+  );
+  padding: 20px; /* اضافه کردن پدینگ به کل صفحه */
+  box-sizing: border-box;
+
+}
+
+.articlePageContainer {
+  /* معادل styles.articlePageContainer */
+  background-color: var(--cardBackground);
+  border-radius: 15px;
+  box-shadow:
+    0 10px 30px var(--shadowColor),
+    0 0 20px rgba(0, 170, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  box-sizing: border-box;
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--borderColor);
+  margin-top: 2000px;
+}
+
+.articleHeader {
+  /* معادل styles.articleHeader */
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 2px solid var(--primaryColor);
+  margin-bottom: 30px;
+}
+
+.articleHeader h1 {
+  /* معادل styles.articleTitle */
+  margin: 0;
+  color: var(--primaryColor);
+  font-size: 2.8em;
+  text-shadow:
+    0 0 15px rgba(0, 170, 255, 0.6),
+    0 0 5px rgba(233, 69, 96, 0.3);
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+.articleMeta {
+  /* معادل styles.articleMeta */
+  margin-top: 15px;
+  font-size: 0.95em;
+  color: #aaa;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.articleMeta span {
+  /* معادل styles.articleMetaItem */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.articleMeta span svg {
+  /* آیکون‌های کوچک */
+  width: 18px;
+  height: 18px;
+  fill: var(--textColor);
+  opacity: 0.7;
+}
+
+.articleImageContainer {
+  /* معادل styles.articleImageContainer */
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: var(--cardBackground);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid var(--borderColor);
+}
+
+.articleImageContainer img {
+  /* معادل styles.articleImage */
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px var(--shadowColor);
+  object-fit: cover; /* برای حفظ نسبت تصویر */
+}
+
+.articleContent {
+  /* معادل styles.articleContent */
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: var(--textColor);
+  text-align: justify;
+  margin-bottom: 40px;
+}
+
+.articleContent h2,
+.articleContent h3 {
+  /* معادل styles.articleContentHeading */
+  color: var(--secondaryColor);
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--borderColor);
+  padding-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.articleContent p {
+  /* معادل styles.articleContentParagraph */
+  margin-bottom: 20px;
+}
+
+.articleContent a {
+  /* معادل styles.articleContentLink */
+  color: var(--primaryColor);
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    text-decoration 0.3s ease;
+  font-weight: bold;
+}
+
+.articleContent a:hover {
+  /* معادل styles.articleContentLinkHover */
+  color: #4dd0ff;
+  text-decoration: underline;
+}
+
+.commentsSection {
+  /* معادل styles.commentsSection */
+  background-color: var(--cardBackground);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid var(--borderColor);
+  box-shadow: inset 0 0 25px rgba(18, 22, 31, 0.9);
+}
+
+.commentsSection h2 {
+  /* معادل styles.commentsSectionTitle */
+  color: var(--textColor);
+  margin-top: 0;
+  border-bottom: 2px solid var(--accentColor);
+  padding-bottom: 12px;
+  font-size: 1.8em;
+  margin-bottom: 25px;
+}
+
+.commentForm {
+  /* معادل styles.commentForm */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--commentBg);
+  border-radius: 8px;
+  border: 1px solid var(--borderColor);
+}
+
+.commentForm textarea {
+  /* معادل styles.commentTextarea */
+  width: 100%;
+  min-height: 120px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--borderColor);
+  background-color: var(--darkBackground);
+  color: var(--textColor);
+  font-size: 1em;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.commentForm textarea:focus {
+  outline: none;
+  border-color: var(--primaryColor);
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
+}
+
+.commentSubmitBtn {
+  /* معادل styles.commentSubmitBtn */
+  align-self: flex-end;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accentColor);
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.25s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 5px 12px rgba(63, 81, 181, 0.5);
+}
+
+.commentSubmitBtn:hover {
+  background-color: #303f9f;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(63, 81, 181, 0.7);
+}
+
+.commentList {
+  /* معادل styles.commentList */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.commentCard {
+  /* معادل styles.commentCard */
+  background-color: var(--commentBg);
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--borderColor);
+  box-shadow: 0 5px 15px var(--shadowColor);
+  transition: box-shadow 0.3s ease;
+}
+
+.commentCard:hover {
+  /* معادل styles.commentCardHover */
+  box-shadow:
+    0 8px 25px var(--shadowColor),
+    0 0 12px rgba(96, 125, 139, 0.4);
+}
+
+.commentHeader {
+  /* معادل styles.commentHeader */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.commentAvatar {
+  /* معادل styles.commentAvatar */
+  width: 45px;
+  height: 45px;
+  background-color: var(--primaryColor); /* رنگ پیش‌فرض آواتار */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--darkBackground);
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+}
+
+.commentUserInfo {
+  /* معادل styles.commentUserInfo */
+  display: flex;
+  flex-direction: column;
+}
+
+.commentAuthor {
+  /* معادل styles.commentAuthor */
+  font-weight: bold;
+  color: var(--textColor);
+  font-size: 1.1em;
+}
+
+.commentDate {
+  /* معادل styles.commentDate */
+  font-size: 0.85em;
+  color: #999;
+}
+
+.commentText {
+  /* معادل styles.commentText */
+  font-size: 1em;
+  line-height: 1.7;
+  color: #c0c0c0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .articlePageContainer {
+    /* styles.articlePageContainer */
+    width: 95%;
+    padding: 25px;
+  }
+  .articleHeader h1 {
+    /* styles.articleTitle */
+    font-size: 2.2em;
+  }
+  .articleMeta {
+    /* styles.articleMeta */
+    flex-direction: column;
+    gap: 10px;
+  }
+  .articleContent {
+    /* styles.articleContent */
+    font-size: 1.05em;
+  }
+  .commentsSection h2 {
+    /* styles.commentsSectionTitle */
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 480px) {
+  .articleHeader h1 {
+    /* styles.articleTitle */
+    font-size: 1.8em;
+  }
+  .articleMeta {
+    /* styles.articleMeta */
+    font-size: 0.9em;
+  }
+  .articleContent {
+    /* styles.articleContent */
+    font-size: 1em;
+  }
+  .commentForm textarea {
+    /* styles.commentTextarea */
+    min-height: 100px;
+  }
+  .commentSubmitBtn {
+    /* styles.commentSubmitBtn */
+    align-self: center;
+    width: 80%;
+  }
+  .commentsSection {
+    /* styles.commentsSection */
+    padding: 20px;
+  }
+}

@@ -1,0 +1,333 @@
+:root {
+  --darkBackground: #0b0e14; /* مشکی بسیار تیره */
+  --primaryColor: #00aaff; /* آبی نئونی */
+  --secondaryColor: #e94560; /* صورتی/قرمز شارپ */
+  --textColor: #e0e0e0; /* خاکستری روشن برای متن */
+  --cardBackground: #12161f; /* خاکستری تیره برای کارت‌ها */
+  --borderColor: #2a3340; /* مرزهای تیره */
+  --hoverBg: rgba(255, 255, 255, 0.08); /* پس‌زمینه هاور */
+  --shadowColor: rgba(0, 0, 0, 0.6); /* رنگ سایه */
+}
+
+body {
+ background-color: var(--darkBackground);
+  color: var(--textColor);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden; /* جلوگیری از اسکرول افقی */
+  background-image: linear-gradient(
+    to bottom right,
+    var(--darkBackground) 50%,
+    #181e2c 100%
+  ); /* گرادیانت ظریف */
+}
+
+.adminDashboard {
+  width: 90%;
+  max-width: 1200px;
+  background-color: var(--cardBackground);
+  border-radius: 15px; /* گوشه‌های گردتر */
+  box-shadow:
+    0 10px 30px var(--shadowColor),
+    0 0 20px rgba(0, 170, 255, 0.1); /* سایه‌های عمیق‌تر و نئونی */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  box-sizing: border-box;
+  backdrop-filter: blur(5px); /* افکت بلور در صورت نیاز (مدرن) */
+  border: 1px solid var(--borderColor);
+}
+
+.dashboardHeader {
+  text-align: center;
+  padding: 25px;
+  border-bottom: 2px solid var(--primaryColor);
+  margin-bottom: 25px;
+  background-color: rgba(18, 22, 31, 0.7); /* پس‌زمینه کمی شفاف */
+  border-radius: 8px 8px 0 0;
+}
+
+.dashboardHeader h1 {
+  margin: 0;
+  color: var(--primaryColor); /* تیتر آبی نئونی */
+  font-size: 2.8em;
+  text-shadow:
+    0 0 15px rgba(0, 170, 255, 0.6),
+    0 0 5px rgba(233, 69, 96, 0.3); /* ترکیب سایه آبی و صورتی */
+  letter-spacing: 1px;
+}
+
+.contentArea {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.mainContent {
+  flex: 3;
+  min-width: 320px;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primaryColor) var(--cardBackground);
+}
+
+.mainContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.mainContent::-webkit-scrollbar-track {
+  background: var(--cardBackground);
+  border-radius: 10px;
+}
+
+.mainContent::-webkit-scrollbar-thumb {
+  background-color: var(--primaryColor);
+  border-radius: 10px;
+  border: 2px solid var(--cardBackground);
+}
+
+.mainContent::-webkit-scrollbar-thumb:hover {
+  background-color: #0088cc; /* رنگ هاور اسکرول */
+}
+
+.sidebar {
+  flex: 1;
+  min-width: 220px;
+  background-color: var(--cardBackground); /* تغییر رنگ به تیره */
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow:
+    inset 0 0 20px rgba(18, 22, 31, 0.8),
+    0 5px 15px var(--shadowColor); /* سایه داخلی و بیرونی */
+  border: 1px solid var(--borderColor);
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  color: var(--textColor);
+  border-bottom: 2px solid var(--secondaryColor); /* خط زیر عنوان ثانویه */
+  padding-bottom: 12px;
+  font-size: 1.6em;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 18px;
+}
+
+.sidebar ul li a {
+  color: var(--textColor);
+  text-decoration: none;
+  font-size: 1.15em;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  position: relative; /* برای افکت هاور */
+  overflow: hidden; /* برای نگه داشتن افکت */
+}
+
+.sidebar ul li a:hover {
+  color: var(--secondaryColor); /* رنگ متن هنگام هاور */
+  transform: translateX(8px); /* جابجایی کمی به راست */
+  background-color: var(--hoverBg); /* پس‌زمینه هاور */
+}
+
+.sidebar ul li a::before {
+  /* افکت خطی مدرن */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50px; /* شروع خارج از دید */
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 170, 255, 0.2)
+  ); /* گرادیانت ظریف */
+  transition: left 0.4s ease;
+}
+
+.sidebar ul li a:hover::before {
+  left: 0; /* نمایش گرادیانت هنگام هاور */
+}
+
+.articleList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding-bottom: 20px;
+}
+
+.articleCard {
+  background-color: var(--cardBackground);
+  border: 1px solid var(--borderColor);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 20px var(--shadowColor); /* سایه قوی‌تر */
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.3s ease;
+  display: flex;
+  flex-direction: column; /* برای چیدمان عمودی محتوا */
+  justify-content: space-between; /* برای قرار دادن دکمه‌ها در پایین */
+}
+
+.articleCard:hover {
+  transform: translateY(-8px); /* حرکت بیشتر به بالا */
+  box-shadow:
+    0 12px 35px var(--shadowColor),
+    0 0 15px rgba(233, 69, 96, 0.4); /* سایه قوی‌تر با رنگ ثانویه */
+  border-color: var(--secondaryColor); /* تغییر رنگ مرز */
+}
+
+.articleCard h3 {
+  color: var(--secondaryColor); /* عنوان مقاله به رنگ ثانویه */
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.7em;
+  letter-spacing: 0.5px;
+}
+
+.articleCard p {
+  font-size: 0.98em;
+  line-height: 1.7;
+  color: #c0c0c0; /* رنگ متن کمی تیره‌تر */
+  flex-grow: 1; /* اجازه می‌دهد پاراگراف فضا را پر کند */
+  margin-bottom: 20px;
+}
+
+.articleActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: auto; /* فشار دادن دکمه‌ها به پایین */
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px; /* گوشه‌های گردتر دکمه */
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: bold;
+  transition:
+    background-color 0.3s ease,
+    transform 0.25s ease,
+    box-shadow 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.btnPrimary {
+  background-color: var(--secondaryColor);
+  color: white;
+  box-shadow: 0 4px 10px rgba(233, 69, 96, 0.5);
+}
+
+.btnPrimary:hover {
+  background-color: #d43a52;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px rgba(233, 69, 96, 0.7);
+}
+
+.btnSecondary {
+  background-color: var(--primaryColor);
+  color: white;
+  border: 1px solid var(--primaryColor);
+  box-shadow: 0 4px 10px rgba(0, 170, 255, 0.4);
+}
+
+.btnSecondary:hover {
+  background-color: #0088cc;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px rgba(0, 170, 255, 0.6);
+}
+
+.btnEdit {
+  background-color: #2196f3; /* آبی مدرن */
+  color: white;
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.5);
+  text-decoration: none;
+}
+.btnEdit:hover {
+  background-color: #0b7dda;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px rgba(33, 150, 243, 0.7);
+}
+
+.btnDelete {
+  background-color: #f44336; /* قرمز استاندارد */
+  color: white;
+  box-shadow: 0 4px 10px rgba(244, 67, 54, 0.5);
+}
+.btnDelete:hover {
+  background-color: #d32f2f;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px rgba(244, 67, 54, 0.7);
+}
+
+.addArticleBtnContainer {
+  text-align: right;
+  margin-bottom: 25px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .adminDashboard {
+    width: 95%;
+    padding: 20px;
+  }
+  .contentArea {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    order: 1;
+    margin-top: 20px; /* فاصله از محتوای اصلی */
+  }
+  .mainContent {
+    order: 2;
+  }
+  .dashboardHeader h1 {
+    font-size: 2.2em;
+  }
+  .articleCard {
+    padding: 20px;
+  }
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboardHeader h1 {
+    font-size: 1.8em;
+  }
+  .articleCard h3 {
+    font-size: 1.4em;
+  }
+  .articleActions {
+    flex-direction: column; /* دکمه‌ها زیر هم */
+    align-items: flex-end;
+  }
+  .addArticleBtnContainer {
+    text-align: center; /* دکمه افزودن در وسط */
+  }
+}
